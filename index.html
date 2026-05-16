@@ -136,5 +136,45 @@ footer{background:#060606;padding:3rem 5%;text-align:center;color:var(--muted);b
   <p style="margin-top:0.8rem;">info@goldcut.com.tr | +90 212 555 0900 | Beyoğlu, İstanbul</p>
   <p style="margin-top:1rem;font-size:0.8rem;">© 2025 GoldCut Kuaför. Tüm hakları saklıdır.</p>
 </footer>
-</body>
+
+<section style="padding:5rem 5%;background:rgba(20,20,20,0.7);">
+  <div style="color:#fbbf24;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:0.6rem;">Saç Analizi</div>
+  <div style="font-size:2rem;font-weight:900;text-transform:uppercase;margin-bottom:0.5rem;">Saç Tipi Testiniz</div>
+  <p style="color:#71717a;margin-bottom:2rem;font-size:0.88rem;">5 soruyu yanıtlayın, size özel bakım önerimizi alın.</p>
+  <div style="max-width:600px;background:#141414;border-radius:1rem;padding:2rem;border:1px solid rgba(251,191,36,0.15);">
+    <div id="quizStep0">
+      <div style="font-weight:700;margin-bottom:1rem;">1. Saçınız genellikle nasıl?</div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <button onclick="nextQ(1,'Kuru saç')" style="padding:0.75rem 1rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:0.5rem;color:#f1f5f9;text-align:left;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,0.2)'">Kuru ve mat</button>
+        <button onclick="nextQ(1,'Yağlı saç')" style="padding:0.75rem 1rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:0.5rem;color:#f1f5f9;text-align:left;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,0.2)'">Yağlı ve ağır</button>
+        <button onclick="nextQ(1,'Normal saç')" style="padding:0.75rem 1rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:0.5rem;color:#f1f5f9;text-align:left;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,0.2)'">Normal ve dengeli</button>
+        <button onclick="nextQ(1,'Hasarlı saç')" style="padding:0.75rem 1rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:0.5rem;color:#f1f5f9;text-align:left;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.borderColor='#fbbf24'" onmouseout="this.style.borderColor='rgba(251,191,36,0.2)'">İşlem görmüş ve hasarlı</button>
+      </div>
+    </div>
+    <div id="quizResult" style="display:none;text-align:center;">
+      <div style="font-size:3rem;margin-bottom:1rem;">★</div>
+      <div style="font-size:1.2rem;font-weight:800;margin-bottom:0.5rem;" id="quizRec"></div>
+      <div style="color:#71717a;font-size:0.85rem;line-height:1.7;margin-bottom:1.5rem;" id="quizNote"></div>
+      <a href="#" style="display:inline-block;background:#fbbf24;color:#0a0a0a;padding:0.75rem 2rem;border-radius:0.4rem;font-weight:700;text-decoration:none;">Randevu Al</a>
+      <button onclick="resetQuiz()" style="display:block;margin:1rem auto 0;background:transparent;border:none;color:#71717a;cursor:pointer;font-size:0.82rem;">Yeniden Dene</button>
+    </div>
+  </div>
+</section>
+<script>
+const recs={
+  'Kuru saç':{rec:'Keratin Bakım Önerisi',note:'Saçınız nem kaybetmiş. Keratin bakım + nemlendirici maske kombinasyonu ile 3-4 haftada fark göreceksiniz.'},
+  'Yağlı saç':{rec:'Derin Temizleme Bakımı',note:'Yağlanma problemini çözmek için özel detoks şampuanı + hafif kondisyoner + saç derisi maskesi öneriyoruz.'},
+  'Normal saç':{rec:'Koruyucu Bakım',note:'Harika bir saç tipiniz var! Düzenli kesim ve hafif besleyici bakım ile saç sağlığınızı koruyun.'},
+  'Hasarlı saç':{rec:'Yoğun Onarım Bakımı',note:'Hasarlı saç için protein bazlı yoğun bakım + sıcak yağ masajı + kesim kombinasyonu öneriyoruz.'},
+};
+function nextQ(step,ans){
+  document.getElementById('quizStep0').style.display='none';
+  const r=recs[ans]||recs['Normal saç'];
+  document.getElementById('quizRec').textContent=r.rec;
+  document.getElementById('quizNote').textContent=r.note;
+  document.getElementById('quizResult').style.display='block';
+}
+function resetQuiz(){document.getElementById('quizStep0').style.display='block';document.getElementById('quizResult').style.display='none';}
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+</script></body>
 </html>
