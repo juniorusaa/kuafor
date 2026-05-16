@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoldCut - Kuaför & Berber</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0a0a0a;--card:#141414;--accent:#fbbf24;--text:#f1f5f9;--muted:#71717a;}
+body{font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text);}
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.97);backdrop-filter:blur(10px);padding:1.2rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;border-bottom:1px solid rgba(251,191,36,0.2);}
+.logo{font-size:1.5rem;font-weight:900;color:var(--accent);letter-spacing:3px;}
+.nav-links a{color:var(--text);text-decoration:none;margin-left:2rem;font-size:0.9rem;}
+.nav-links a:hover{color:var(--accent);}
+.btn-gold{background:var(--accent);color:#0a0a0a;padding:0.7rem 1.8rem;border:none;border-radius:0.4rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.3s;}
+.btn-gold:hover{background:#f59e0b;}
+.hero{min-height:100vh;position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 5% 4rem;gap:4rem;}
+.hero-badge{display:inline-block;background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.4);color:var(--accent);padding:0.4rem 1rem;border-radius:2rem;font-size:0.85rem;margin-bottom:1.5rem;}
+.hero h1{font-size:3.2rem;font-weight:900;line-height:1.15;margin-bottom:1.5rem;text-transform:uppercase;}
+.hero h1 span{color:var(--accent);}
+.hero p{color:var(--muted);font-size:1.05rem;line-height:1.8;margin-bottom:2rem;}
+.hero-imgs{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;}
+.hero-img-main{width:100%;height:300px;object-fit:cover;border-radius:1rem;grid-column:span 2;border:1px solid rgba(251,191,36,0.15);}
+.hero-img-sm{width:100%;height:150px;object-fit:cover;border-radius:0.7rem;border:1px solid rgba(251,191,36,0.1);}
+.section{padding:5rem 5%;}
+.section-tag{color:var(--accent);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:0.8rem;}
+.section-title{font-size:2.2rem;font-weight:900;margin-bottom:1rem;text-transform:uppercase;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;}
+.service-card{background:var(--card);border-radius:1rem;overflow:hidden;border:1px solid rgba(251,191,36,0.1);transition:all 0.3s;}
+.service-card:hover{transform:translateY(-5px);border-color:rgba(251,191,36,0.5);}
+.service-img{width:100%;height:200px;object-fit:cover;}
+.service-body{padding:1.5rem;}
+.service-name{font-weight:800;margin-bottom:0.4rem;}
+.service-desc{color:var(--muted);font-size:0.85rem;line-height:1.6;margin-bottom:0.8rem;}
+.service-price{color:var(--accent);font-weight:700;}
+.team-section{padding:5rem 5%;background:rgba(20,20,20,0.7);}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+.team-card{background:var(--card);border-radius:1rem;overflow:hidden;border:1px solid rgba(251,191,36,0.1);transition:all 0.3s;}
+.team-card:hover{border-color:rgba(251,191,36,0.4);}
+.team-img{width:100%;height:240px;object-fit:cover;object-position:top;}
+.team-info{padding:1.2rem;}
+.team-name{font-weight:800;margin-bottom:0.2rem;}
+.team-spec{color:var(--accent);font-size:0.8rem;margin-bottom:0.5rem;}
+.team-exp{color:var(--muted);font-size:0.8rem;}
+.gallery-section{padding:5rem 5%;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem;}
+.gallery-item{overflow:hidden;border-radius:0.7rem;aspect-ratio:1;border:1px solid rgba(251,191,36,0.08);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;}
+.gallery-item:hover img{transform:scale(1.08);}
+.booking{padding:5rem 5%;background:linear-gradient(135deg,rgba(251,191,36,0.08),rgba(10,10,10,0.9));display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.booking-img{width:100%;height:450px;object-fit:cover;border-radius:1rem;border:1px solid rgba(251,191,36,0.2);}
+.form-group{margin-bottom:1.2rem;}
+.form-group label{display:block;color:var(--muted);font-size:0.85rem;margin-bottom:0.4rem;}
+.form-group input,.form-group select{width:100%;background:var(--card);border:1px solid rgba(251,191,36,0.2);border-radius:0.5rem;padding:0.8rem 1rem;color:var(--text);font-size:0.95rem;outline:none;}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);}
+footer{background:#060606;padding:3rem 5%;text-align:center;color:var(--muted);border-top:1px solid rgba(251,191,36,0.1);}
+.footer-logo{font-size:1.8rem;font-weight:900;color:var(--accent);margin-bottom:0.8rem;letter-spacing:3px;}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}.services-grid,.team-grid,.gallery-grid,.booking{grid-template-columns:1fr;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">GOLDCUT</div>
+  <div class="nav-links">
+    <a href="#">Ana Sayfa</a><a href="#">Hizmetler</a><a href="#">Galeri</a><a href="#">Ekip</a><a href="#">Randevu</a>
+  </div>
+  <a href="#" class="btn-gold">Randevu Al</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">Beyoğlu'nun Prestijli Kuaförü</div>
+    <h1>Stilini <span>Altın</span> Dokunuşla Yenile</h1>
+    <p>GoldCut'ta deneyimli stilistlerimiz ve premium ürünlerimizle saçlarınızı istediğiniz stile kavuşturuyoruz.</p>
+    <a href="#" class="btn-gold">Randevu Al</a>
+  </div>
+  <div class="hero-imgs">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Salon" class="hero-img-main">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" alt="Saç" class="hero-img-sm">
+    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&q=80" alt="Saç Boyama" class="hero-img-sm">
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-tag">Hizmetlerimiz</div>
+  <div class="section-title">Ne Yapıyoruz</div>
+  <div class="services-grid">
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Kesim" class="service-img"><div class="service-body"><div class="service-name">Saç Kesimi</div><div class="service-desc">Yüz şeklinize ve tarzınıza özel, uzman stilistler tarafından yapılan modern saç kesimleri.</div><div class="service-price">350 TL'den başlayan fiyatlarla</div></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Boyama" class="service-img"><div class="service-body"><div class="service-name">Saç Boyama</div><div class="service-desc">Balayage, ombre, highlight ve tam boyama teknikleriyle renkli dönüşümler.</div><div class="service-price">800 TL'den başlayan fiyatlarla</div></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80" alt="Keratin" class="service-img"><div class="service-body"><div class="service-name">Keratin Bakım</div><div class="service-desc">Brezilya keratin ile saçlarınızı düzleştirin, parlatın ve 3-5 ay boyunca koruya altına alın.</div><div class="service-price">1.500 TL'den başlayan fiyatlarla</div></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Fön" class="service-img"><div class="service-body"><div class="service-name">Fön ve Şekillendirme</div><div class="service-desc">Özel organizasyonlar ve günlük bakım için profesyonel fön ve saç şekillendirme.</div><div class="service-price">250 TL'den başlayan fiyatlarla</div></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=600&q=80" alt="Cilt" class="service-img"><div class="service-body"><div class="service-name">Cilt Bakımı</div><div class="service-desc">Yüz masajı, maske uygulaması ve profesyonel cilt bakım seansları.</div><div class="service-price">600 TL'den başlayan fiyatlarla</div></div></div>
+    <div class="service-card"><img src="https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?w=600&q=80" alt="Makyaj" class="service-img"><div class="service-body"><div class="service-name">Profesyonel Makyaj</div><div class="service-desc">Düğün, özel davet veya günlük için airbrush ve HD makyaj uygulamaları.</div><div class="service-price">1.200 TL'den başlayan fiyatlarla</div></div></div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="section-tag">Stilistlerimiz</div>
+  <div class="section-title">Uzman Ekibimiz</div>
+  <div class="team-grid">
+    <div class="team-card"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Stilist" class="team-img"><div class="team-info"><div class="team-name">Aylin Şahin</div><div class="team-spec">Renk Uzmanı</div><div class="team-exp">12 yıl deneyim</div></div></div>
+    <div class="team-card"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Stilist" class="team-img"><div class="team-info"><div class="team-name">Seda Kılıç</div><div class="team-spec">Saç Tasarımcısı</div><div class="team-exp">8 yıl deneyim</div></div></div>
+    <div class="team-card"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Stilist" class="team-img"><div class="team-info"><div class="team-name">Tarık Aydın</div><div class="team-spec">Barber Uzmanı</div><div class="team-exp">10 yıl deneyim</div></div></div>
+    <div class="team-card"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Stilist" class="team-img"><div class="team-info"><div class="team-name">Merve Can</div><div class="team-spec">Makyaj Sanatçısı</div><div class="team-exp">7 yıl deneyim</div></div></div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="section-tag">Çalışmalarımız</div>
+  <div class="section-title">Öncesi ve Sonrası</div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" alt="Saç"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80" alt="Salon"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&q=80" alt="Saç rengi"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=400&q=80" alt="Bakım"></div>
+  </div>
+</section>
+
+<section class="booking">
+  <img src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=800&q=80" alt="Salon" class="booking-img">
+  <div>
+    <div class="section-tag">Randevu</div>
+    <div class="section-title">Hemen Randevu Al</div>
+    <p style="color:var(--muted);margin-bottom:2rem;line-height:1.7;">Tercih ettiğiniz stilist ve saate göre kolayca randevu oluşturun.</p>
+    <div class="form-group"><label>Ad Soyad</label><input type="text" placeholder="Adınız"></div>
+    <div class="form-group"><label>Telefon</label><input type="tel" placeholder="+90 5xx xxx xx xx"></div>
+    <div class="form-group"><label>Hizmet</label><select><option>Saç Kesimi</option><option>Saç Boyama</option><option>Keratin Bakım</option><option>Fön</option><option>Makyaj</option></select></div>
+    <div class="form-group"><label>Stilist</label><select><option>Fark Etmez</option><option>Aylin Şahin</option><option>Seda Kılıç</option><option>Tarık Aydın</option><option>Merve Can</option></select></div>
+    <button class="btn-gold" style="width:100%;padding:1rem;">Randevu Oluştur</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">GOLDCUT</div>
+  <p>Stilin altın değerinde.</p>
+  <p style="margin-top:0.8rem;">info@goldcut.com.tr | +90 212 555 0900 | Beyoğlu, İstanbul</p>
+  <p style="margin-top:1rem;font-size:0.8rem;">© 2025 GoldCut Kuaför. Tüm hakları saklıdır.</p>
+</footer>
+</body>
+</html>
